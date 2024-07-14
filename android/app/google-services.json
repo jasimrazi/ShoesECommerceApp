@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "872148769295",
+    "project_id": "shoe-app-f3bbb",
+    "storage_bucket": "shoe-app-f3bbb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:872148769295:android:dff38c7a7b3e01f933e17a",
+        "android_client_info": {
+          "package_name": "com.example.oxyboots"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "872148769295-qcbivlbll8753obhtulo4u4ngjetfiol.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.oxyboots",
+            "certificate_hash": "78a6a3db3fab4e90cc701ff69ba8f39ca65f6a6b"
+          }
+        },
+        {
+          "client_id": "872148769295-f2dlfrjo3kloerqnracl2t3fap4eaf5p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd5HKJhL0wvbAdPDrfREVLK1tKV96D4SE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "872148769295-f2dlfrjo3kloerqnracl2t3fap4eaf5p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "872148769295-prmnqu0c55o52s7kv7g4db2qh7ioctlp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.oxyboots"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
