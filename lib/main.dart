@@ -1,16 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:shoesapp/admin/admin.dart';
 import 'package:shoesapp/screens/auth/auth_state.dart';
-import 'package:shoesapp/screens/auth/sign_in.dart';
-import 'package:shoesapp/screens/favourite.dart';
-import 'package:shoesapp/screens/home.dart';
 import 'package:shoesapp/service/connectivity.dart';
-import 'package:shoesapp/splashscreens/landingpage.dart';
-import 'package:shoesapp/splashscreens/onboard1.dart';
 import 'package:shoesapp/utils/theme.dart';
 import 'firebase_options.dart';
-import 'dart:io';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +30,7 @@ void main() async {
     if (inDebug) {
       return ErrorWidget(details.exception);
     } else {
-      return Center(child: Text('Error occurred!'));
+      return const Center(child: Text('Error occurred!'));
     }
   };
 }
@@ -54,7 +47,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: appTheme,
       navigatorKey: navigatorKey, // Set the navigator key
-      home: AuthState(),
+      home: const AuthState(),
     );
   }
 }

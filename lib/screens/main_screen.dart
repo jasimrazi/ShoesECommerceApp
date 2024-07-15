@@ -103,7 +103,7 @@ class _MainScreenState extends State<MainScreen> {
             child: GestureDetector(
               onTap: () => _onItemTapped(2),
               child: Container(
-                padding: EdgeInsets.all(18),
+                padding: const EdgeInsets.all(18),
                 decoration: BoxDecoration(
                   color: Colors.blue,
                   shape: BoxShape.circle,
@@ -112,11 +112,11 @@ class _MainScreenState extends State<MainScreen> {
                       color: kPrimary.withOpacity(0.3),
                       spreadRadius: 5,
                       blurRadius: 10,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
-                child: Icon(
+                child: const Icon(
                   Icons.shopping_cart_outlined,
                   color: Colors.white,
                   size: 30,

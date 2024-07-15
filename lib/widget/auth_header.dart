@@ -10,21 +10,21 @@ class AuthHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      margin: EdgeInsets.only(bottom: 50),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.only(bottom: 50),
       child: Center(
         child: Column(
           children: [
             Text(
               headerText,
-              style: TextStyle(
+              style: const TextStyle(
                   color: Color(0xff1A2530),
                   fontSize: 28,
                   fontWeight: FontWeight.w700),
             ),
             Text(bodyText,
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xff707B81),
                   fontSize: 16,
                   fontWeight: FontWeight.w400,

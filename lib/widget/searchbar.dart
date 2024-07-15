@@ -18,12 +18,12 @@ class CustomSearchBar extends StatelessWidget {
         filled: true,
         fillColor: Colors.white,
         hintText: 'Looking for shoes',
-        prefixIcon: Icon(Icons.search, color: Colors.grey),
+        prefixIcon: const Icon(Icons.search, color: Colors.grey),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: BorderSide.none,
         ),
-        contentPadding: EdgeInsets.symmetric(vertical: 10.0),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10.0),
       ),
       onSubmitted: onSearch, // Call onSearch when the user submits
     );

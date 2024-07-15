@@ -22,19 +22,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Text(
             title ?? '',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
           ),
         ],
       ),
       leading: isBack == true
           ? Container(
-              margin: EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
+              margin: const EdgeInsets.only(left: 10),
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.white,
               ),
               child: IconButton(
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_ios_new,
                   size: 24,
                 ),
@@ -49,13 +49,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       actions: isEdit == true
           ? [
               Container(
-                margin: EdgeInsets.only(right: 10),
-                decoration: BoxDecoration(
+                margin: const EdgeInsets.only(right: 10),
+                decoration: const BoxDecoration(
                   shape: BoxShape.circle,
                   color: Colors.white,
                 ),
                 child: IconButton(
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.edit_outlined,
                     size: 24,
                     color: kPrimary,
@@ -65,7 +65,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => ProfileDetails()),
+                          builder: (BuildContext context) => const ProfileDetails()),
                     );
                   },
                   iconSize: 28, // Adjust icon size as needed
@@ -81,5 +81,5 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(kToolbarHeight);
+  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

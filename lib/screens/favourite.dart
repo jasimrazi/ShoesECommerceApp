@@ -72,7 +72,7 @@ class _FavouriteState extends State<Favourite> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         
         title: 'Favourite',
       ),
@@ -82,16 +82,16 @@ class _FavouriteState extends State<Favourite> {
           future: _favouriteShoesFuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CupertinoActivityIndicator());
+              return const Center(child: CupertinoActivityIndicator());
             } else if (snapshot.hasError) {
-              return Center(child: Text('Error fetching data'));
+              return const Center(child: Text('Error fetching data'));
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return Center(child: Text('No favourite shoes found'));
+              return const Center(child: Text('No favourite shoes found'));
             }
 
             final shoes = snapshot.data!;
             return GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 crossAxisSpacing: 21,
                 mainAxisSpacing: 20,
@@ -113,7 +113,7 @@ class _FavouriteState extends State<Favourite> {
                         Stack(
                           children: [
                             ClipRRect(
-                              borderRadius: BorderRadius.vertical(
+                              borderRadius: const BorderRadius.vertical(
                                 top: Radius.circular(20),
                               ),
                               child: Image.network(
@@ -124,13 +124,13 @@ class _FavouriteState extends State<Favourite> {
                               ),
                             ),
                             Container(
-                              margin: EdgeInsets.all(4),
-                              padding: EdgeInsets.all(8),
-                              decoration: BoxDecoration(
+                              margin: const EdgeInsets.all(4),
+                              padding: const EdgeInsets.all(8),
+                              decoration: const BoxDecoration(
                                 color: Color(0xffF8F9FA),
                                 shape: BoxShape.circle,
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.favorite,
                                 size: 18,
                                 color: Colors.red, // Red heart for favourite
@@ -146,7 +146,7 @@ class _FavouriteState extends State<Favourite> {
                               children: [
                                 Text(
                                   shoe.tag.toUpperCase(),
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 14,
                                     fontWeight: FontWeight.w400,
                                     color: kPrimary,
@@ -154,14 +154,14 @@ class _FavouriteState extends State<Favourite> {
                                 ),
                                 Text(
                                   shoe.name,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                     fontWeight: FontWeight.w600,
                                   ),
                                 ),
                                 Text(
                                   '\$${shoe.price.toStringAsFixed(2)}',
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w500),
                                 ),

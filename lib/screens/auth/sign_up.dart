@@ -71,7 +71,7 @@ class _SignUpState extends State<SignUp> {
 
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MainScreen()),
+        MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -130,7 +130,7 @@ class _SignUpState extends State<SignUp> {
 
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => Home()),
+          MaterialPageRoute(builder: (context) => const Home()),
         );
       }
     } on FirebaseAuthException catch (e) {
@@ -147,15 +147,15 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Sign Up', isBack: true,),
+      appBar: const CustomAppBar(title: 'Sign Up', isBack: true,),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              AuthHeader(
+              const AuthHeader(
                 headerText: 'Create Account',
                 bodyText: 'Let’s Create Account Together',
               ),
@@ -183,7 +183,7 @@ class _SignUpState extends State<SignUp> {
                 isGoogle: true,
                 isLoading: _isGoogleLoading,
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomBottomTextWidget(
                 onPressed: () {
                   Navigator.of(context).pop();
@@ -191,7 +191,7 @@ class _SignUpState extends State<SignUp> {
                 firstText: 'Already have an account?',
                 secondText: ' Sign In',
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),

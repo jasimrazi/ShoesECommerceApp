@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoesapp/widget/appbar.dart';
 import 'package:shoesapp/widget/auth_header.dart';
-import 'package:shoesapp/widget/bottom_text_widget.dart';
 import 'package:shoesapp/widget/elevated_button.dart';
 import 'package:shoesapp/widget/textfield.dart';
 
@@ -16,17 +15,17 @@ class _ForgetPasswordState extends State<ForgetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Forget Password',isBack: true,),
+      appBar: const CustomAppBar(title: 'Forget Password',isBack: true,),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            AuthHeader(
+            const AuthHeader(
               headerText: 'Recovery Password',
               bodyText: 'Please Enter Your Email Address To Recieve a Verification Code',
             ),
-            CustomTextField(labelText: 'Email Address'),
+            const CustomTextField(labelText: 'Email Address'),
             
             CustomElevatedButton(onPressed: () {}, text: 'Continue'),
             

@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shoesapp/screens/auth/sign_in.dart';
-import 'package:shoesapp/screens/home.dart';
 import 'package:shoesapp/screens/main_screen.dart';
 
 class AuthState extends StatelessWidget {
+  const AuthState({super.key});
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
@@ -13,11 +13,11 @@ class AuthState extends StatelessWidget {
       builder: (context, snapshot) {
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: CupertinoActivityIndicator());
+          return const Center(child: CupertinoActivityIndicator());
         } else if (snapshot.hasData) {
-          return MainScreen();
+          return const MainScreen();
         } else {
-          return SignIn();
+          return const SignIn();
         }
       },
     );

@@ -65,7 +65,7 @@ class _ProductsState extends State<Products> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Products', isBack: true),
+      appBar: const CustomAppBar(title: 'Products', isBack: true),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -79,13 +79,13 @@ class _ProductsState extends State<Products> {
                 future: _products,
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Center(child: CupertinoActivityIndicator());
+                    return const Center(child: CupertinoActivityIndicator());
                   }
 
                   if (snapshot.hasError ||
                       !snapshot.hasData ||
                       snapshot.data!.isEmpty) {
-                    return Center(child: Text('No products available'));
+                    return const Center(child: Text('No products available'));
                   }
 
                   List<Map<String, dynamic>> products = snapshot.data!;
@@ -94,8 +94,8 @@ class _ProductsState extends State<Products> {
                     margin: const EdgeInsets.symmetric(
                         vertical: 16, horizontal: 10),
                     child: GridView.builder(
-                      physics: BouncingScrollPhysics(),
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      physics: const BouncingScrollPhysics(),
+                      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         crossAxisSpacing: 20,
                         mainAxisSpacing: 20,

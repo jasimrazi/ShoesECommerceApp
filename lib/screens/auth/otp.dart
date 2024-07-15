@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:shoesapp/screens/home.dart';
 import 'package:shoesapp/screens/main_screen.dart';
 import 'package:shoesapp/utils/theme.dart';
 import 'package:shoesapp/widget/appbar.dart';
@@ -50,7 +49,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
       await _auth.signInWithCredential(credential);
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MainScreen()),
+        MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -66,14 +65,14 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Verify OTP',),
+      appBar: const CustomAppBar(title: 'Verify OTP',),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              AuthHeader(
+              const AuthHeader(
                 headerText: 'Enter OTP',
                 bodyText: 'We have sent you an OTP. Please enter it below',
               ),
@@ -96,7 +95,7 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
                           borderRadius: BorderRadius.circular(8),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             color: kPrimary
                           ),
                           borderRadius: BorderRadius.circular(8),

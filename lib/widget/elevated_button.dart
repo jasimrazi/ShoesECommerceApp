@@ -35,27 +35,28 @@ class CustomElevatedButton extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  if (isGoogle) // Show Google logo if isGoogle is true
+                  if (isLoading)
+                    CupertinoActivityIndicator(
+                      color: isGoogle ? Colors.black : Colors.white,
+                    ),
+                  if (isGoogle && !isLoading)
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0),
-                      child: isLoading
-                          ? CupertinoActivityIndicator(
-                              color: Colors.black,
-                            )
-                          : Image.asset(
-                              'assets/images/google.png', // Replace with your Google logo asset
-                              height: 24,
-                              width: 24,
-                            ),
+                      child: Image.asset(
+                        'assets/images/google.png', // Replace with your Google logo asset
+                        height: 24,
+                        width: 24,
+                      ),
                     ),
-                  Text(
-                    isGoogle && !isLoading ? 'Sign in with Google' : text,
-                    style: TextStyle(
-                      color: isGoogle ? Colors.black : Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                  if (!isLoading)
+                    Text(
+                      isGoogle ? 'Sign in with Google' : text,
+                      style: TextStyle(
+                        color: isGoogle ? Colors.black : Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),

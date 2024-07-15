@@ -4,7 +4,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:shoesapp/screens/auth/forget_password.dart';
 import 'package:shoesapp/screens/auth/mobile_number.dart';
 import 'package:shoesapp/screens/auth/sign_up.dart';
-import 'package:shoesapp/screens/home.dart';
 import 'package:shoesapp/screens/main_screen.dart';
 import 'package:shoesapp/widget/appbar.dart';
 import 'package:shoesapp/widget/auth_header.dart';
@@ -39,7 +38,7 @@ class _SignInState extends State<SignIn> {
       );
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => MainScreen()),
+        MaterialPageRoute(builder: (context) => const MainScreen()),
       );
     } on FirebaseAuthException catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -77,7 +76,7 @@ class _SignInState extends State<SignIn> {
         // Navigate to Home screen after successful sign-in
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (context) => MainScreen()),
+          MaterialPageRoute(builder: (context) => const MainScreen()),
         );
       }
     } catch (e) {
@@ -96,22 +95,22 @@ class _SignInState extends State<SignIn> {
     // For example, navigate to another screen for OTP input
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => MobileNumberPage()),
+      MaterialPageRoute(builder: (context) => const MobileNumberPage()),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Sign In',),
+      appBar: const CustomAppBar(title: 'Sign In',),
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
-              AuthHeader(
+              const AuthHeader(
                 headerText: 'Hello Again!',
                 bodyText: 'Welcome Back You’ve Been Missed!',
               ),
@@ -127,7 +126,7 @@ class _SignInState extends State<SignIn> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => ForgetPassword()),
+                    MaterialPageRoute(builder: (context) => const ForgetPassword()),
                   );
                 },
                 child: const Text(
@@ -148,15 +147,17 @@ class _SignInState extends State<SignIn> {
                 onPressed: _signInWithGoogle,
                 text: 'Sign In with Google',
                 isGoogle: true,
+                isLoading: _isLoading,
               ),
               CustomElevatedButton(
                 onPressed: _loginWithOtp,
                 text: 'Login with OTP',
+                isLoading: _isLoading,
               ),
               CustomBottomTextWidget(
                 onPressed: () {
                   Navigator.of(context).push(
-                    MaterialPageRoute(builder: (context) => SignUp()),
+                    MaterialPageRoute(builder: (context) => const SignUp()),
                   );
                 },
                 firstText: 'Don’t have an account?',

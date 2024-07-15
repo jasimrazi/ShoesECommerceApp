@@ -143,11 +143,10 @@ class _ProfileDetailsState extends State<ProfileDetails> {
               CustomTextField(
                   labelText: 'Address', controller: _addressController),
               SizedBox(height: 20),
-              _isLoading
-                  ? Center(child: CupertinoActivityIndicator())
-                  : CustomElevatedButton(
+                  CustomElevatedButton(
                       onPressed: _saveProfileDetails,
                       text: 'Save',
+                      isLoading:_isLoading,
                     ),
             ],
           ),

@@ -22,7 +22,7 @@ class CustomBottomTextWidget extends StatelessWidget {
           children: [
             Text(
               firstText,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
                 color: Color(0xff707B81),
@@ -30,7 +30,7 @@ class CustomBottomTextWidget extends StatelessWidget {
             ),
             Text(
               secondText,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.bold,
                 color: Color(0xff1A2530),

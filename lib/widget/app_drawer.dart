@@ -23,7 +23,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Color(0xff1A2530),
+      backgroundColor: const Color(0xff1A2530),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
@@ -31,7 +31,7 @@ class CustomDrawer extends StatelessWidget {
             future: _fetchUserData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return UserAccountsDrawerHeader(
+                return const UserAccountsDrawerHeader(
                   accountName: Text(
                     "Loading...",
                     style: TextStyle(color: Colors.white),
@@ -50,7 +50,7 @@ class CustomDrawer extends StatelessWidget {
                   margin: EdgeInsets.zero,
                 );
               } else if (snapshot.hasError) {
-                return UserAccountsDrawerHeader(
+                return const UserAccountsDrawerHeader(
                   accountName: Text(
                     "Error",
                     style: TextStyle(color: Colors.white),
@@ -73,23 +73,28 @@ class CustomDrawer extends StatelessWidget {
                 return UserAccountsDrawerHeader(
                   accountName: Text(
                     userData['name'] ?? 'No Name',
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                   accountEmail: Text(
                     userData['email'] ?? 'No Email',
-                    style: TextStyle(color: Colors.white),
+                    style: const TextStyle(color: Colors.white),
                   ),
                   currentAccountPicture: CircleAvatar(
+                    backgroundImage: userData['profileImageUrl'] != null
+                        ? NetworkImage(userData['profileImageUrl'])
+                        : null,
                     backgroundColor: Colors.white,
-                    child: Text(
-                      (userData['name'] != null)
-                          ? userData['name'].substring(0, 2).toUpperCase()
-                          : 'JD',
-                      style:
-                          TextStyle(fontSize: 24.0, color: Color(0xff1A2530)),
-                    ),
+                    child: userData['profileImageUrl'] == null
+                        ? Text(
+                            (userData['name'] != null)
+                                ? userData['name'].substring(0, 2).toUpperCase()
+                                : 'JD',
+                            style: const TextStyle(
+                                fontSize: 24.0, color: Color(0xff1A2530)),
+                          )
+                        : null,
                   ),
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color: Color(0xff1A2530),
                   ),
                   margin: EdgeInsets.zero,
@@ -98,8 +103,8 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.person_outline, color: Colors.white30),
-            title: Text(
+            leading: const Icon(Icons.person_outline, color: Colors.white30),
+            title: const Text(
               "Profile",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
@@ -108,15 +113,15 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MainScreen(
+                    builder: (BuildContext context) => const MainScreen(
                           initialPage: MainScreenPage.profile,
                         )),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.home_outlined, color: Colors.white30),
-            title: Text(
+            leading: const Icon(Icons.home_outlined, color: Colors.white30),
+            title: const Text(
               "Home Page",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
@@ -125,15 +130,15 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MainScreen(
+                    builder: (BuildContext context) => const MainScreen(
                           initialPage: MainScreenPage.home,
                         )),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.shopping_bag_outlined, color: Colors.white30),
-            title: Text(
+            leading: const Icon(Icons.shopping_bag_outlined, color: Colors.white30),
+            title: const Text(
               "My Cart",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
@@ -142,15 +147,15 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MainScreen(
+                    builder: (BuildContext context) => const MainScreen(
                           initialPage: MainScreenPage.cart,
                         )),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.favorite_outline, color: Colors.white30),
-            title: Text(
+            leading: const Icon(Icons.favorite_outline, color: Colors.white30),
+            title: const Text(
               "Favourite",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
@@ -159,16 +164,16 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MainScreen(
+                    builder: (BuildContext context) => const MainScreen(
                           initialPage: MainScreenPage.favourite,
                         )),
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.notifications_active_outlined,
+            leading: const Icon(Icons.notifications_active_outlined,
                 color: Colors.white30),
-            title: Text(
+            title: const Text(
               "Notifications",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
@@ -177,20 +182,20 @@ class CustomDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => MainScreen(
+                    builder: (BuildContext context) => const MainScreen(
                           initialPage: MainScreenPage.notifications,
                         )),
               );
             },
           ),
-          Divider(
+          const Divider(
             color: Colors.white24,
             indent: 50,
             endIndent: 50,
           ),
           ListTile(
-            leading: Icon(Icons.logout, color: Colors.white30),
-            title: Text(
+            leading: const Icon(Icons.logout, color: Colors.white30),
+            title: const Text(
               "Logout",
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w500),
@@ -212,11 +217,11 @@ class CustomDrawer extends StatelessWidget {
           context,
           MaterialPageRoute(
               builder: (BuildContext context) =>
-                  SignIn())); // Example route name for login screen
+                  const SignIn())); // Example route name for login screen
     } catch (e) {
       print("Error signing out: $e");
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text("Error signing out")),
+        const SnackBar(content: Text("Error signing out")),
       );
     }
   }

@@ -20,7 +20,6 @@ class ConnectivityService {
   Future<bool> checkConnection() async {
     final result = await _connectivity.checkConnectivity();
 
-    print(result);
     return result != ConnectivityResult.none;
   }
 

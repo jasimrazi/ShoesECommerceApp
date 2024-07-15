@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shoesapp/screens/auth/otp.dart';
-import 'package:shoesapp/screens/home.dart';
 import 'package:shoesapp/screens/main_screen.dart';
 import 'package:shoesapp/widget/appbar.dart';
 import 'package:shoesapp/widget/auth_header.dart';
@@ -9,6 +8,8 @@ import 'package:shoesapp/widget/textfield.dart';
 import 'package:shoesapp/widget/elevated_button.dart';
 
 class MobileNumberPage extends StatefulWidget {
+  const MobileNumberPage({super.key});
+
   @override
   _MobileNumberPageState createState() => _MobileNumberPageState();
 }
@@ -31,7 +32,7 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
           await _auth.signInWithCredential(credential);
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (context) => MainScreen()),
+            MaterialPageRoute(builder: (context) => const MainScreen()),
           );
         },
         verificationFailed: (FirebaseAuthException e) {
@@ -65,14 +66,14 @@ class _MobileNumberPageState extends State<MobileNumberPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'Send OTP',isBack: true,),
+      appBar: const CustomAppBar(title: 'Send OTP',isBack: true,),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              AuthHeader(
+              const AuthHeader(
                 headerText: 'Enter Mobile Number',
                 bodyText: 'We will send you an OTP to verify your number',
               ),

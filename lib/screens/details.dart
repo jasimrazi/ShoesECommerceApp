@@ -57,7 +57,7 @@ class _DetailsState extends State<Details> {
   Future<void> _addToCart(String shoeId) async {
     if (selectedSizeIndex == -1) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Please select a size')),
+        const SnackBar(content: Text('Please select a size')),
       );
       return;
     }
@@ -96,7 +96,7 @@ class _DetailsState extends State<Details> {
       }
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Added to cart!')),
+        const SnackBar(content: Text('Added to cart!')),
       );
     } catch (e) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -160,7 +160,7 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
+      appBar: const CustomAppBar(
         isBack: true,
         title: 'Men\'s Shoes',
       ),
@@ -168,15 +168,15 @@ class _DetailsState extends State<Details> {
         future: _shoeFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CupertinoActivityIndicator());
+            return const Center(child: CupertinoActivityIndicator());
           } else if (snapshot.hasError || !snapshot.hasData) {
-            return Center(child: Text('Error loading shoe details'));
+            return const Center(child: Text('Error loading shoe details'));
           }
 
           shoe = snapshot.data!; // Store fetched shoe data
 
           return SingleChildScrollView(
-            physics: BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -190,9 +190,9 @@ class _DetailsState extends State<Details> {
                     ),
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Container(
-                  padding: EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(20.0),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(20),
@@ -216,7 +216,7 @@ class _DetailsState extends State<Details> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Text(
                         '\$${shoe!.price}',
                         style: const TextStyle(
@@ -224,7 +224,7 @@ class _DetailsState extends State<Details> {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Text(
                         shoe!.description,
                         style: const TextStyle(
@@ -235,19 +235,19 @@ class _DetailsState extends State<Details> {
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 20),
-                      Text(
+                      const SizedBox(height: 20),
+                      const Text(
                         'Gallery',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 56,
                         child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           itemCount: shoe!.imageUrls.length,
                           itemBuilder: (context, index) {
@@ -260,13 +260,13 @@ class _DetailsState extends State<Details> {
                                   });
                                 },
                                 child: Container(
-                                  padding: EdgeInsets.all(5.0),
+                                  padding: const EdgeInsets.all(5.0),
                                   width: 56,
                                   margin:
                                       const EdgeInsets.symmetric(horizontal: 8),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: Color(0xffF8F9FA),
+                                    color: const Color(0xffF8F9FA),
                                   ),
                                   child: Image.network(
                                     shoe!.imageUrls[index],
@@ -278,19 +278,19 @@ class _DetailsState extends State<Details> {
                           },
                         ),
                       ),
-                      SizedBox(height: 20),
-                      Text(
+                      const SizedBox(height: 20),
+                      const Text(
                         'Size',
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       Container(
                         height: 50,
                         child: ListView.builder(
-                          physics: BouncingScrollPhysics(),
+                          physics: const BouncingScrollPhysics(),
                           scrollDirection: Axis.horizontal,
                           itemCount: shoe!.sizes.length,
                           itemBuilder: (context, index) {
@@ -308,13 +308,13 @@ class _DetailsState extends State<Details> {
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color:
-                                      isSelected ? kPrimary : Color(0xffF8F9FA),
+                                      isSelected ? kPrimary : const Color(0xffF8F9FA),
                                   boxShadow: isSelected
                                       ? [
                                           BoxShadow(
                                             color: kPrimary.withOpacity(0.3),
                                             blurRadius: 8,
-                                            offset: Offset(0, 4),
+                                            offset: const Offset(0, 4),
                                           )
                                         ]
                                       : null,
@@ -335,7 +335,7 @@ class _DetailsState extends State<Details> {
                           },
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -348,15 +348,15 @@ class _DetailsState extends State<Details> {
         future: _shoeFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           } else if (snapshot.hasError || !snapshot.hasData) {
-            return SizedBox.shrink();
+            return const SizedBox.shrink();
           }
 
           final shoe = snapshot.data!;
 
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             decoration: BoxDecoration(
               color: Colors.white,
               boxShadow: [
@@ -364,10 +364,10 @@ class _DetailsState extends State<Details> {
                   color: Colors.grey.withOpacity(0.5),
                   spreadRadius: 5,
                   blurRadius: 7,
-                  offset: Offset(0, 3),
+                  offset: const Offset(0, 3),
                 ),
               ],
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                 topLeft: Radius.circular(20),
                 topRight: Radius.circular(20),
               ),
@@ -376,12 +376,12 @@ class _DetailsState extends State<Details> {
               children: [
                 Text(
                   '\$${shoe.price}',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   decoration: BoxDecoration(
                       border: Border.all(color: kPrimary.withOpacity(0.3)),
@@ -396,14 +396,14 @@ class _DetailsState extends State<Details> {
                         : () => _toggleFavourite(widget.shoeId),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 ElevatedButton(
                   onPressed:
                       isLoadingCart ? null : () => _addToCart(widget.shoeId),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+                    padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                     backgroundColor: kPrimary,
                     foregroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -411,10 +411,10 @@ class _DetailsState extends State<Details> {
                     ),
                   ),
                   child: isLoadingCart
-                      ? CupertinoActivityIndicator(
+                      ? const CupertinoActivityIndicator(
                           color: Colors.white,
                         )
-                      : Text(
+                      : const Text(
                           'Add to Cart',
                           style: TextStyle(
                             fontSize: 16,
